@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://components/VirtualMember/scripts/VirtualMember.gd" type="Script" id=1]
+[ext_resource path="res://components/level_timer/scripts/level_timer.gd" type="Script" id=2]
+
+[node name="level_timer" type="Node" groups=["level_timer"]]
+script = ExtResource( 2 )
+
+[node name="VirtualMember" type="Node" parent="."]
+script = ExtResource( 1 )
+_id = "level_timer"
+group = "level_timer"

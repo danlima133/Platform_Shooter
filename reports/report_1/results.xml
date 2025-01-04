@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2024-12-28T18:48:15" name="report_1" tests="14" failures="0" time="1.295">
+	<testsuite id="0" name="test_sigleton_modules" package="tests" timestamp="2024-12-28T20:48:13" hostname="localhost" tests="14" failures="0" errors="0" skipped="0" time="1.295">
+		<testcase name="test_is_package" classname="test_sigleton_modules" time="0.093">
+		</testcase>
+		<testcase name="test_not_is_package" classname="test_sigleton_modules" time="0.078">
+		</testcase>
+		<testcase name="test_is_module" classname="test_sigleton_modules" time="0.133">
+		</testcase>
+		<testcase name="test_not_is_module" classname="test_sigleton_modules" time="0.099">
+		</testcase>
+		<testcase name="test_get_pathrray_by_string" classname="test_sigleton_modules" time="0.065">
+		</testcase>
+		<testcase name="test_get_pathrray_by_string_with_one_path" classname="test_sigleton_modules" time="0.083">
+		</testcase>
+		<testcase name="test_get_string_by_pathrray_type_package_as_path" classname="test_sigleton_modules" time="0.100">
+		</testcase>
+		<testcase name="test_get_string_by_pathrray_type_package_as_path_module" classname="test_sigleton_modules" time="0.065">
+		</testcase>
+		<testcase name="test_get_string_by_pathrray_type_module_as_path" classname="test_sigleton_modules" time="0.066">
+		</testcase>
+		<testcase name="test_get_string_by_pathrray_type_module_as_path_module" classname="test_sigleton_modules" time="0.099">
+		</testcase>
+		<testcase name="test_get_module_by_pathrray_valid" classname="test_sigleton_modules" time="0.082">
+		</testcase>
+		<testcase name="test_get_module_by_pathrray_not_valid" classname="test_sigleton_modules" time="0.149">
+		</testcase>
+		<testcase name="test_get_package_by_pathrray" classname="test_sigleton_modules" time="0.066">
+		</testcase>
+		<testcase name="test_get_package_by_pathrray_invalid" classname="test_sigleton_modules" time="0.066">
+		</testcase>
+	</testsuite>
+</testsuites>

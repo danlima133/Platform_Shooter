@@ -1,0 +1,62 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/textures/images/thought/dark_sphere (1).png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/images/thought/dark_sphere (2).png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/images/thought/dark_sphere (6).png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/images/thought/dark_sphere (3).png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/images/thought/dark_sphere (4).png" type="Texture" id=5]
+[ext_resource path="res://assets/textures/images/thought/dark_sphere (5).png" type="Texture" id=6]
+[ext_resource path="res://assets/textures/images/thought/dark_sphere (7).png" type="Texture" id=7]
+[ext_resource path="res://assets/textures/images/thought/dark_sphere (8).png" type="Texture" id=8]
+[ext_resource path="res://assets/textures/images/thought/dark_sphere (9).png" type="Texture" id=9]
+[ext_resource path="res://assets/textures/images/thought/dark_sphere (10).png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+} ]
+
+[sub_resource type="Curve" id=2]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 0 ), 0.0, -18.821, 0, 0, Vector2( 1, 360 ), -1108.18, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=3]
+max_value = 3.0
+_data = [ Vector2( 0.0112245, 1.60123 ), 0.0, -5.14452, 0, 0, Vector2( 0.5, 1.5 ), -18.7717, -18.7717, 0, 0, Vector2( 1, 1.5 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.315789, 0.618421, 1 )
+colors = PoolColorArray( 0.247059, 0.27451, 0.360784, 1, 0.184314, 0.368627, 0.505882, 1, 0.121569, 0.458824, 0.65098, 1, 0.156863, 0.776471, 0.964706, 0.596078 )
+
+[node name="thought" type="Node2D"]
+
+[node name="pivot" type="Node2D" parent="."]
+
+[node name="texture" type="AnimatedSprite" parent="pivot"]
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="particle" type="CPUParticles2D" parent="pivot"]
+amount = 20
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 20.0
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = -80.0
+tangential_accel = 50.0
+tangential_accel_random = 1.0
+damping = 82.95
+angle_curve = SubResource( 2 )
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )

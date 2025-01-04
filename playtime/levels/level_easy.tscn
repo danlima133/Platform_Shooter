@@ -1,0 +1,72 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://components/ui/objs/HUDlevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game_objects/player/objs/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game_objects/enimies/bug/objs/bug.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tilesmap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://components/levelset/scripts/level.gd" type="Script" id=5]
+[ext_resource path="res://components/level_timer/level_timer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game_objects/enimies/fly_enemy/objs/fly_enmey.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game_effects/level_initialize/objs/level_initialize.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/textures/altas/enemys/bumblebee/texture_blumblebee.tres" type="SpriteFrames" id=9]
+[ext_resource path="res://components/daynamic_background.tscn" type="PackedScene" id=10]
+[ext_resource path="res://game_effects/foliage/objs/foliage.tscn" type="PackedScene" id=11]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 4.0
+
+[node name="level_easy" type="Node2D"]
+
+[node name="HUDlevel" parent="." instance=ExtResource( 1 )]
+
+[node name="level_timer" parent="." instance=ExtResource( 6 )]
+
+[node name="level" type="Node2D" parent="." groups=["levelset"]]
+script = ExtResource( 5 )
+width = 600
+height = 80
+_next_level = "test_scene"
+player = NodePath("../player")
+level_title = "Level Easy"
+level_subtitle = "The Start"
+
+[node name="start" type="Position2D" parent="level"]
+position = Vector2( 16, 88 )
+
+[node name="enemies" type="Node2D" parent="level"]
+
+[node name="bug" parent="level/enemies" instance=ExtResource( 3 )]
+position = Vector2( 208, 64 )
+
+[node name="fly_enmey" parent="level/enemies" instance=ExtResource( 7 )]
+position = Vector2( 96, 64 )
+texture = ExtResource( 9 )
+amplitude = 20.0
+frequency = 0.3
+enemy_shape = SubResource( 1 )
+damage = 1
+life = 3
+debug = true
+
+[node name="level_initialize" parent="level" instance=ExtResource( 8 )]
+layer = 0
+
+[node name="tilesmap" parent="." instance=ExtResource( 4 )]
+
+[node name="platforms" parent="tilesmap" index="0"]
+tile_data = PoolIntArray( 262155, 4, 0, 262156, 4, 0, 262157, 4, 0, 262158, 4, 0, 393216, 4, 0, 393217, 4, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 4, 0, 393227, 4, 0, 393228, 4, 0, 393229, 4, 0, 393230, 4, 0, 393231, 4, 0, 393232, 4, 0, 393233, 4, 0, 393234, 4, 0, 393235, 4, 0 )
+
+[node name="props" parent="tilesmap" index="1"]
+tile_data = PoolIntArray( 131090, 1, 0, 196626, 2, 0, 262162, 1, 65536, 327683, 0, 4, 327688, 0, 4, 327698, 1, 131073 )
+
+[node name="foliage" parent="tilesmap/props" index="0" instance=ExtResource( 11 )]
+position = Vector2( 295, 24 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 16, 88 )
+
+[node name="daynamic_clouds" parent="player" instance=ExtResource( 10 )]
+position = Vector2( -112, -16 )
+z_index = -1
+
+[editable path="tilesmap"]

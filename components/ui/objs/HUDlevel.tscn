@@ -1,0 +1,329 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://components/ui/scripts/HUDlevel.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/animated/clock/clock.tres" type="Texture" id=2]
+[ext_resource path="res://assets/textures/altas/player/player_default.tres" type="Texture" id=3]
+[ext_resource path="res://assets/ui/skull.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="HUDlevel" type="CanvasLayer" groups=["HUDlevel"]]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="control" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Control" type="Control" parent="control"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 315.0
+margin_bottom = 175.0
+
+[node name="player_bullets" type="VBoxContainer" parent="control/Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -36.5
+margin_bottom = 1.5
+rect_min_size = Vector2( 16, 21 )
+custom_constants/separation = -5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="player_life" type="HBoxContainer" parent="control/Control"]
+margin_right = 24.0
+margin_bottom = 16.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="control/Control/player_life"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 8, 8 )
+texture = ExtResource( 3 )
+
+[node name="life_container" type="HBoxContainer" parent="control/Control/player_life"]
+margin_left = 16.0
+margin_right = 16.0
+margin_bottom = 16.0
+custom_constants/separation = 2
+
+[node name="enimies_in_level" type="HBoxContainer" parent="control/Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -32.0
+margin_bottom = 12.0
+custom_constants/separation = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="control/Control/enimies_in_level"]
+modulate = Color( 0.0392157, 0.345098, 0.478431, 1 )
+margin_right = 12.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 12, 12 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="control/Control/enimies_in_level"]
+margin_left = 14.0
+margin_right = 32.0
+margin_bottom = 12.0
+custom_constants/separation = -1
+
+[node name="max_enimies" type="Label" parent="control/Control/enimies_in_level/HBoxContainer2"]
+margin_right = 8.0
+margin_bottom = 12.0
+custom_colors/font_color = Color( 0.0387859, 0.34705, 0.478516, 1 )
+text = "#"
+
+[node name="bar" type="Label" parent="control/Control/enimies_in_level/HBoxContainer2"]
+margin_left = 7.0
+margin_right = 11.0
+margin_bottom = 12.0
+custom_colors/font_color = Color( 0.0387859, 0.34705, 0.478516, 1 )
+text = "/"
+
+[node name="enimies" type="Label" parent="control/Control/enimies_in_level/HBoxContainer2"]
+margin_left = 10.0
+margin_right = 18.0
+margin_bottom = 12.0
+custom_colors/font_color = Color( 0.0387859, 0.34705, 0.478516, 1 )
+text = "#"
+
+[node name="level_timer" type="MarginContainer" parent="control/Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -32.0
+margin_right = 65.0
+rect_min_size = Vector2( 8, 32 )
+custom_constants/margin_right = 0
+custom_constants/margin_top = 8
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 8
+
+[node name="conatainer" type="HBoxContainer" parent="control/Control/level_timer"]
+margin_left = 10.0
+margin_top = 8.0
+margin_right = 68.0
+margin_bottom = 24.0
+custom_constants/separation = 3
+
+[node name="TextureRect" type="TextureRect" parent="control/Control/level_timer/conatainer"]
+modulate = Color( 0.0392157, 0.345098, 0.478431, 1 )
+margin_right = 12.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 12, 0 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="time" type="Label" parent="control/Control/level_timer/conatainer"]
+margin_left = 15.0
+margin_top = 2.0
+margin_right = 58.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.0387859, 0.34705, 0.478516, 1 )
+text = "##:##"
+
+[node name="anim" type="AnimationPlayer" parent="control"]
+unique_name_in_owner = true
+anims/RESET = SubResource( 2 )
+anims/fade = SubResource( 3 )
+
+[node name="game_over" type="PanelContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_type_variation = "PanelFade"
+
+[node name="CenterContainer" type="CenterContainer" parent="game_over"]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="game_over/CenterContainer"]
+margin_left = 100.0
+margin_top = 43.0
+margin_right = 220.0
+margin_bottom = 137.0
+
+[node name="MarginContainer" type="MarginContainer" parent="game_over/CenterContainer/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 42.0
+custom_constants/margin_right = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="game_over/CenterContainer/VBoxContainer/MarginContainer"]
+margin_left = 12.0
+margin_right = 108.0
+margin_bottom = 22.0
+theme_type_variation = "LabelTitle"
+text = "Game Over"
+align = 1
+
+[node name="restart_level_btn" type="Button" parent="game_over/CenterContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 120.0
+margin_bottom = 68.0
+text = "Restart"
+
+[node name="main_btn" type="Button" parent="game_over/CenterContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 120.0
+margin_bottom = 94.0
+text = "Main"
+
+[node name="player_win" type="PanelContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_type_variation = "PanelFade"
+
+[node name="CenterContainer" type="CenterContainer" parent="player_win"]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="player_win/CenterContainer"]
+margin_left = 100.0
+margin_top = 34.0
+margin_right = 220.0
+margin_bottom = 146.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="padding" type="MarginContainer" parent="player_win/CenterContainer/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 60.0
+custom_constants/margin_right = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="player_win/CenterContainer/VBoxContainer/padding"]
+margin_left = 12.0
+margin_right = 108.0
+margin_bottom = 40.0
+custom_constants/separation = 0
+
+[node name="title" type="Label" parent="player_win/CenterContainer/VBoxContainer/padding/VBoxContainer"]
+margin_right = 96.0
+margin_bottom = 22.0
+theme_type_variation = "LabelTitle"
+text = "Win"
+align = 1
+
+[node name="conslusion_time" type="Label" parent="player_win/CenterContainer/VBoxContainer/padding/VBoxContainer"]
+margin_top = 22.0
+margin_right = 96.0
+margin_bottom = 40.0
+theme_type_variation = "LabelSubTitle"
+text = "#:#"
+align = 1
+
+[node name="next_level_btn" type="Button" parent="player_win/CenterContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 120.0
+margin_bottom = 86.0
+text = "Next Level"
+
+[node name="main_btn" type="Button" parent="player_win/CenterContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 120.0
+margin_bottom = 112.0
+text = "Main"
+
+[node name="game_pause" type="PanelContainer" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_type_variation = "PanelFade"
+
+[node name="CenterContainer" type="CenterContainer" parent="game_pause"]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="game_pause/CenterContainer"]
+margin_left = 100.0
+margin_top = 43.0
+margin_right = 220.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="padding" type="MarginContainer" parent="game_pause/CenterContainer/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 42.0
+custom_constants/margin_right = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="game_pause/CenterContainer/VBoxContainer/padding"]
+margin_left = 12.0
+margin_right = 108.0
+margin_bottom = 22.0
+size_flags_vertical = 0
+custom_constants/separation = 0
+
+[node name="title" type="Label" parent="game_pause/CenterContainer/VBoxContainer/padding/VBoxContainer"]
+margin_right = 96.0
+margin_bottom = 22.0
+theme_type_variation = "LabelTitle"
+text = "Pause"
+align = 1
+
+[node name="resume_btn" type="Button" parent="game_pause/CenterContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 120.0
+margin_bottom = 68.0
+text = "Resume"
+
+[node name="main_btn" type="Button" parent="game_pause/CenterContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 120.0
+margin_bottom = 94.0
+text = "Main"
+
+[connection signal="pressed" from="game_over/CenterContainer/VBoxContainer/restart_level_btn" to="." method="_on_restart_level_btn_pressed"]
+[connection signal="pressed" from="game_over/CenterContainer/VBoxContainer/main_btn" to="." method="_on_main_btn_pressed"]
+[connection signal="pressed" from="player_win/CenterContainer/VBoxContainer/next_level_btn" to="." method="_on_next_level_btn_pressed"]
+[connection signal="pressed" from="player_win/CenterContainer/VBoxContainer/main_btn" to="." method="_on_main_btn_pressed"]
+[connection signal="pressed" from="game_pause/CenterContainer/VBoxContainer/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="game_pause/CenterContainer/VBoxContainer/main_btn" to="." method="_on_main_btn_pressed"]

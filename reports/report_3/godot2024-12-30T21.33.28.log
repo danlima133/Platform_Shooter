@@ -1,0 +1,28 @@
+Godot Engine v3.6.stable.official.de2f0f147 - https://godotengine.org
+OpenGL ES 2.0 Renderer: Intel(R) HD Graphics
+ 
+ERROR: 'The local variable '_levels' is shadowing an already-defined variable at line 17.'
+----------------------------------------------------------------------------------------------
+ GdUnit3 Comandline Tool
+
+ Usage:
+	runtest -a <directory|path of testsuite>
+	runtest -a <directory> -i <path of testsuite|testsuite_name|testsuite_name:test_name>
+
+-- Options ---------------------------------------------------------------------------------------
+
+  [-a, --add]                             Adds the given test suite or directory to the execution pipeline.
+     -a <directory|path of testsuite>
+
+  [-i, --ignore]                          Adds the given test suite or test case to the ignore list.
+     -i <testsuite_name|testsuite_name:test-name>
+
+  [-c, --continue]                        By default GdUnit will abort on first test failure to be fail fast, instead of stop after first failure you can use this option to run the complete test set.
+
+  [-conf, --config]                       Run all tests by given test configuration. Default is 'GdUnitRunner.cfg'
+     -conf [testconfiguration.cfg]
+
+  [-help]                                 Shows this help message.
+
+  [--help-advanced]                       Shows advanced options.
+

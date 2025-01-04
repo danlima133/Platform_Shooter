@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2024-12-30T21:35:58" name="report_4" tests="10" failures="0" time="1.389">
+	<testsuite id="0" name="test_sigleton_manager_levels" package="tests" timestamp="2024-12-30T23:35:56" hostname="localhost" tests="10" failures="0" errors="0" skipped="0" time="1.389">
+		<testcase name="test_try_get_env_main" classname="test_sigleton_manager_levels" time="0.227">
+		</testcase>
+		<testcase name="test_try_get_env_level" classname="test_sigleton_manager_levels" time="0.132">
+		</testcase>
+		<testcase name="test_try_get_env_generic" classname="test_sigleton_manager_levels" time="0.166">
+		</testcase>
+		<testcase name="test_try_get_env_unknow" classname="test_sigleton_manager_levels" time="0.067">
+		</testcase>
+		<testcase name="test_get_levels" classname="test_sigleton_manager_levels" time="0.150">
+		</testcase>
+		<testcase name="test_get_levels_path_invalid" classname="test_sigleton_manager_levels" time="0.066">
+		</testcase>
+		<testcase name="test_remove_current_scene" classname="test_sigleton_manager_levels" time="0.133">
+		</testcase>
+		<testcase name="test_remove_current_scene_no_scene_in_get_tree" classname="test_sigleton_manager_levels" time="0.082">
+		</testcase>
+		<testcase name="test_set_scene_name_no_as_generic" classname="test_sigleton_manager_levels" time="0.082">
+		</testcase>
+		<testcase name="test_set_scene_name_as_generic" classname="test_sigleton_manager_levels" time="0.099">
+		</testcase>
+	</testsuite>
+</testsuites>

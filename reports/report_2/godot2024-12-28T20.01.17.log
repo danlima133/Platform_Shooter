@@ -1,0 +1,77 @@
+Godot Engine v3.6.stable.official.de2f0f147 - https://godotengine.org
+OpenGL ES 2.0 Renderer: Intel(R) HD Graphics
+ 
+----------------------------------------------------------------------------------------------
+ GdUnit3 Comandline Tool
+
+Disabled fail fast!
+Scanning for test suites in: C:/Users/user/documents/projects Godot/Platform_Shooter/tests
+Run Test Suite res://tests/test_module_groups.gd 
+ERROR: 'The local variable 'name_group' is shadowing an already-defined variable at line 4.'
+	Run Test: res://tests/test_module_groups.gd > test_is_group_valid_in_scene_tree_with_group_valid :STARTED
+	Run Test: res://tests/test_module_groups.gd > test_is_group_valid_in_scene_tree_with_group_valid :PASSED 91ms
+
+	Run Test: res://tests/test_module_groups.gd > test_is_group_valid_in_scene_tree_with_group_invalid :STARTED
+	Run Test: res://tests/test_module_groups.gd > test_is_group_valid_in_scene_tree_with_group_invalid :PASSED 184ms
+
+	Run Test: res://tests/test_module_groups.gd > test_is_group_valid_out_scene_tree :STARTED
+	Run Test: res://tests/test_module_groups.gd > test_is_group_valid_out_scene_tree :PASSED 97ms
+
+PASSED 383ms
+	| 3 total | 0 error | 0 failed | 0 skipped | 0 orphans |
+
+Run Test Suite res://tests/test_sigleton_modules.gd 
+	Run Test: res://tests/test_sigleton_modules.gd > test_is_package :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_is_package :PASSED 104ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_not_is_package :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_not_is_package :PASSED 116ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_is_module :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_is_module :PASSED 99ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_not_is_module :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_not_is_module :PASSED 66ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_pathrray_by_string :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_pathrray_by_string :PASSED 66ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_pathrray_by_string_with_one_path :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_pathrray_by_string_with_one_path :PASSED 83ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_package_as_path :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_package_as_path :PASSED 66ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_package_as_path_module :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_package_as_path_module :PASSED 66ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_module_as_path :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_module_as_path :PASSED 99ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_module_as_path_module :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_module_as_path_module :PASSED 99ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_module_by_pathrray_valid :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_module_by_pathrray_valid :PASSED 83ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_module_by_pathrray_not_valid :STARTED
+ERROR: Condition "name == """ is true.
+   at: set_name (scene/main/node.cpp:1095) - Condition "name == """ is true.
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_module_by_pathrray_not_valid :PASSED 132ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_package_by_pathrray :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_package_by_pathrray :PASSED 116ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_package_by_pathrray_invalid :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_package_by_pathrray_invalid :PASSED 100ms
+
+PASSED 1s 328ms
+	| 17 total | 0 error | 0 failed | 0 skipped | 0 orphans |
+
+Total test suites: 2
+Total test cases:  17
+Total time:        1s 711ms
+Open Report at: file://C:/Users/user/documents/projects Godot/Platform_Shooter/reports/report_2/index.html
+Exit code: 0
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object.cpp:2074) - ObjectDB instances leaked at exit (run with --verbose for details).

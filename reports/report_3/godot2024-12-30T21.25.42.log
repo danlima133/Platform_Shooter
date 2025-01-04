@@ -1,0 +1,165 @@
+Godot Engine v3.6.stable.official.de2f0f147 - https://godotengine.org
+OpenGL ES 2.0 Renderer: Intel(R) HD Graphics
+ 
+ERROR: 'The local variable '_levels' is shadowing an already-defined variable at line 17.'
+----------------------------------------------------------------------------------------------
+ GdUnit3 Comandline Tool
+
+Disabled fail fast!
+Scanning for test suites in: C:/Users/user/documents/projects Godot/Platform_Shooter/tests
+Run Test Suite res://tests/test_module_groups.gd 
+ERROR: 'The local variable 'name_group' is shadowing an already-defined variable at line 4.'
+	Run Test: res://tests/test_module_groups.gd > test_is_group_valid_in_scene_tree_with_group_valid :STARTED
+	Run Test: res://tests/test_module_groups.gd > test_is_group_valid_in_scene_tree_with_group_valid :PASSED 180ms
+
+	Run Test: res://tests/test_module_groups.gd > test_is_group_valid_in_scene_tree_with_group_invalid :STARTED
+	Run Test: res://tests/test_module_groups.gd > test_is_group_valid_in_scene_tree_with_group_invalid :PASSED 78ms
+
+	Run Test: res://tests/test_module_groups.gd > test_is_group_valid_out_scene_tree :STARTED
+	Run Test: res://tests/test_module_groups.gd > test_is_group_valid_out_scene_tree :PASSED 132ms
+
+PASSED 409ms
+	| 3 total | 0 error | 0 failed | 0 skipped | 0 orphans |
+
+Run Test Suite res://tests/test_sigleton_manager_levels.gd 
+
+Debugger Break, Reason: 'Invalid call. Nonexistent function 'keys' in base 'int'.'
+*Frame 0 - res://sligletons/ManagerScenes.gd:29 in function '_try_get_current_env'
+Enter "help" for assistance.
+debug> Built-In Debugger command list:
+
+	c,continue		 Continue execution.
+	bt,backtrace		 Show stack trace (frames).
+	fr,frame <frame>:	 Change current frame.
+	lv,locals		 Show local variables for current frame.
+	mv,members		 Show member variables for "this" in frame.
+	gv,globals		 Show global variables.
+	p,print <expr>		 Execute and print variable in expression.
+	s,step			 Step to next line.
+	n,next			 Next line.
+	fin,finish		 Step out of current frame.
+	br,break [source:line]	 List all breakpoints or place a breakpoint.
+	delete [source:line]:	 Delete one/all breakpoints.
+	set [key=value]:	 List all options, or set one.
+	q,quit			 Quit application.
+debug> 	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_main :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_main :PASSED 156ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_level :STARTED
+
+Debugger Break, Reason: 'Invalid set index 'test_level' (on base: 'int') with value of type 'Nil'.'
+*Frame 0 - res://tests/test_sigleton_manager_levels.gd:36 in function 'test_try_get_env_level'
+Enter "help" for assistance.
+debug> 	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_level :PASSED 2s 717ms
+	Report:
+		line 34: WARNING:
+		 Detected <1> orphan nodes during test execution!
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_generic :STARTED
+
+Debugger Break, Reason: 'Invalid call. Nonexistent function 'keys' in base 'int'.'
+*Frame 0 - res://sligletons/ManagerScenes.gd:29 in function '_try_get_current_env'
+Enter "help" for assistance.
+debug> 	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_generic :FAILED 1s 109ms
+	Report:
+		line 48: Expecting:
+		 '2'
+		 but was
+		 'Null'
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_unknow :STARTED
+
+Debugger Break, Reason: 'Invalid call. Nonexistent function 'keys' in base 'int'.'
+*Frame 0 - res://sligletons/ManagerScenes.gd:29 in function '_try_get_current_env'
+Enter "help" for assistance.
+debug> 	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_unknow :FAILED 1s 298ms
+	Report:
+		line 53: Expecting:
+		 '3'
+		 but was
+		 'Null'
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_get_levels :STARTED
+
+Debugger Break, Reason: 'Invalid call. Nonexistent function 'keys' in base 'int'.'
+*Frame 0 - res://tests/test_sigleton_manager_levels.gd:57 in function 'test_get_levels'
+Enter "help" for assistance.
+debug> 	Run Test: res://tests/test_sigleton_manager_levels.gd > test_get_levels :PASSED 1s 298ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_get_levels_path_invalid :STARTED
+
+Debugger Break, Reason: 'Invalid call. Nonexistent function 'keys' in base 'int'.'
+*Frame 0 - res://tests/test_sigleton_manager_levels.gd:67 in function 'test_get_levels_path_invalid'
+Enter "help" for assistance.
+debug> 	Run Test: res://tests/test_sigleton_manager_levels.gd > test_get_levels_path_invalid :PASSED 1s 116ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_remove_current_scene :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_remove_current_scene :PASSED 99ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_remove_current_scene_no_scene_in_get_tree :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_remove_current_scene_no_scene_in_get_tree :PASSED 99ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_set_scene_name_no_as_generic :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_set_scene_name_no_as_generic :PASSED 97ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_set_scene_name_as_generic :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_set_scene_name_as_generic :PASSED 65ms
+
+FAILED 19s 556ms
+	| 13 total | 0 error | 2 failed | 0 skipped | 1 orphans |
+
+Run Test Suite res://tests/test_sigleton_modules.gd 
+	Run Test: res://tests/test_sigleton_modules.gd > test_is_package :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_is_package :PASSED 77ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_not_is_package :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_not_is_package :PASSED 68ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_is_module :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_is_module :PASSED 81ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_not_is_module :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_not_is_module :PASSED 116ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_pathrray_by_string :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_pathrray_by_string :PASSED 81ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_pathrray_by_string_with_one_path :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_pathrray_by_string_with_one_path :PASSED 83ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_package_as_path :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_package_as_path :PASSED 80ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_package_as_path_module :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_package_as_path_module :PASSED 66ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_module_as_path :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_module_as_path :PASSED 83ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_module_as_path_module :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_string_by_pathrray_type_module_as_path_module :PASSED 82ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_module_by_pathrray_valid :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_module_by_pathrray_valid :PASSED 117ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_module_by_pathrray_not_valid :STARTED
+ERROR: Condition "name == """ is true.
+   at: set_name (scene/main/node.cpp:1095) - Condition "name == """ is true.
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_module_by_pathrray_not_valid :PASSED 99ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_package_by_pathrray :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_package_by_pathrray :PASSED 82ms
+
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_package_by_pathrray_invalid :STARTED
+	Run Test: res://tests/test_sigleton_modules.gd > test_get_package_by_pathrray_invalid :PASSED 83ms
+
+PASSED 1s 250ms
+	| 27 total | 0 error | 2 failed | 0 skipped | 1 orphans |
+
+Total test suites: 3
+Total test cases:  27
+Total time:        21s 215ms
+Open Report at: file://C:/Users/user/documents/projects Godot/Platform_Shooter/reports/report_3/index.html
+Exit code: 100
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object.cpp:2074) - ObjectDB instances leaked at exit (run with --verbose for details).

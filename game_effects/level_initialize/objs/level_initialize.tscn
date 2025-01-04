@@ -1,0 +1,123 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game_effects/level_initialize/scripts/level_initialize.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer/MarginContainer/subtitle:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "level_info"
+length = 2.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.25, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer/MarginContainer/subtitle:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1.25, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="level_initialize" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+
+[node name="level_info" type="MarginContainer" parent="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -172.981
+margin_top = -82.8
+rect_min_size = Vector2( 100, 0 )
+custom_constants/margin_right = 20
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/level_info"]
+margin_right = 152.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 80, 0 )
+size_flags_vertical = 0
+alignment = 1
+
+[node name="title" type="Label" parent="Control/level_info/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 152.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+theme_type_variation = "LabelTitle"
+text = "Level"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/level_info/VBoxContainer"]
+margin_top = 26.0
+margin_right = 152.0
+margin_bottom = 57.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 0
+custom_constants/margin_left = 8
+
+[node name="subtitle" type="Label" parent="Control/level_info/VBoxContainer/MarginContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 8.0
+margin_right = 144.0
+margin_bottom = 31.0
+theme_type_variation = "LabelEnfase"
+text = "subtitle
+subtile"
+align = 1
+autowrap = true
+max_lines_visible = 2
+
+[node name="anim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Control/level_info")
+playback_process_mode = 0
+playback_speed = 0.4
+anims/RESET = SubResource( 5 )
+anims/level_info = SubResource( 3 )

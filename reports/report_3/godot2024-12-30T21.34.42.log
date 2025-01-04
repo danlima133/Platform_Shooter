@@ -1,0 +1,10 @@
+Godot Engine v3.6.stable.official.de2f0f147 - https://godotengine.org
+OpenGL ES 2.0 Renderer: Intel(R) HD Graphics
+ 
+ERROR: 'The local variable '_levels' is shadowing an already-defined variable at line 17.'
+----------------------------------------------------------------------------------------------
+ GdUnit3 Comandline Tool
+
+Given directory or file does not exists: tests/tests_sigleton_manager_levels.gd
+No test suites found, abort test run!
+Exit code: 0

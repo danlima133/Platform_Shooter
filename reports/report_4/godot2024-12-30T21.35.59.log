@@ -1,0 +1,46 @@
+Godot Engine v3.6.stable.official.de2f0f147 - https://godotengine.org
+OpenGL ES 2.0 Renderer: Intel(R) HD Graphics
+ 
+ERROR: 'The local variable '_levels' is shadowing an already-defined variable at line 17.'
+----------------------------------------------------------------------------------------------
+ GdUnit3 Comandline Tool
+
+Run Test Suite res://tests/test_sigleton_manager_levels.gd 
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_main :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_main :PASSED 227ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_level :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_level :PASSED 132ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_generic :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_generic :PASSED 166ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_unknow :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_try_get_env_unknow :PASSED 67ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_get_levels :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_get_levels :PASSED 150ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_get_levels_path_invalid :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_get_levels_path_invalid :PASSED 66ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_remove_current_scene :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_remove_current_scene :PASSED 133ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_remove_current_scene_no_scene_in_get_tree :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_remove_current_scene_no_scene_in_get_tree :PASSED 82ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_set_scene_name_no_as_generic :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_set_scene_name_no_as_generic :PASSED 82ms
+
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_set_scene_name_as_generic :STARTED
+	Run Test: res://tests/test_sigleton_manager_levels.gd > test_set_scene_name_as_generic :PASSED 99ms
+
+PASSED 1s 389ms
+	| 10 total | 0 error | 0 failed | 0 skipped | 0 orphans |
+
+Total test suites: 1
+Total test cases:  10
+Total time:        1s 389ms
+Open Report at: file://C:/Users/user/documents/projects Godot/Platform_Shooter/reports/report_4/index.html
+Exit code: 0
