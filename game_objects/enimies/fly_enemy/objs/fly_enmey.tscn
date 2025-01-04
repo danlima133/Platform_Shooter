@@ -20,12 +20,14 @@ script = ExtResource( 1 )
 [node name="sprite" type="AnimatedSprite" parent="pivot"]
 frames = SubResource( 1 )
 playing = true
+flip_h = true
 
 [node name="hit_box" parent="pivot" instance=ExtResource( 2 )]
 _name = "flyenemy"
+_filter = [ "bug", "flyenemy" ]
 
 [node name="hurt_box" parent="pivot" instance=ExtResource( 3 )]
 _name = "flyenemy"
-_filter = [ "flyenemy" ]
+_filter = [ "flyenemy", "bug" ]
 
 [connection signal="at_hurt_factor" from="pivot/hurt_box" to="." method="_on_hurt_box_at_hurt_factor"]

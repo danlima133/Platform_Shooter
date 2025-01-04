@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://components/ui/objs/HUDlevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game_objects/player/objs/player.tscn" type="PackedScene" id=2]
@@ -11,9 +11,10 @@
 [ext_resource path="res://assets/textures/altas/enemys/bumblebee/texture_blumblebee.tres" type="SpriteFrames" id=9]
 [ext_resource path="res://components/daynamic_background.tscn" type="PackedScene" id=10]
 [ext_resource path="res://game_effects/foliage/objs/foliage.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/textures/altas/enemys/bee/texture_bee.tres" type="SpriteFrames" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 4.0
+radius = 5.0
 
 [node name="level_easy" type="Node2D"]
 
@@ -23,26 +24,81 @@ radius = 4.0
 
 [node name="level" type="Node2D" parent="." groups=["levelset"]]
 script = ExtResource( 5 )
-width = 600
-height = 80
+width = 1000
+height = 190
 _next_level = "test_scene"
 player = NodePath("../player")
 level_title = "Level Easy"
 level_subtitle = "The Start"
 
 [node name="start" type="Position2D" parent="level"]
-position = Vector2( 16, 88 )
+position = Vector2( 160, 8 )
 
 [node name="enemies" type="Node2D" parent="level"]
 
 [node name="bug" parent="level/enemies" instance=ExtResource( 3 )]
-position = Vector2( 208, 64 )
+position = Vector2( 96, 32 )
+
+[node name="bug2" parent="level/enemies" instance=ExtResource( 3 )]
+position = Vector2( 64, 96 )
+
+[node name="bug3" parent="level/enemies" instance=ExtResource( 3 )]
+position = Vector2( 192, 144 )
+
+[node name="bug4" parent="level/enemies" instance=ExtResource( 3 )]
+position = Vector2( 288, 144 )
+scale = Vector2( -1, 1 )
+
+[node name="bug5" parent="level/enemies" instance=ExtResource( 3 )]
+position = Vector2( 560, 16 )
+scale = Vector2( -1, 1 )
+
+[node name="bug6" parent="level/enemies" instance=ExtResource( 3 )]
+position = Vector2( 913, -112 )
+scale = Vector2( -1, 1 )
+
+[node name="bug7" parent="level/enemies" instance=ExtResource( 3 )]
+position = Vector2( 688, 48 )
+scale = Vector2( -1, 1 )
+
+[node name="bug8" parent="level/enemies" instance=ExtResource( 3 )]
+position = Vector2( 865, 16 )
+scale = Vector2( -1, 1 )
 
 [node name="fly_enmey" parent="level/enemies" instance=ExtResource( 7 )]
-position = Vector2( 96, 64 )
-texture = ExtResource( 9 )
-amplitude = 20.0
+position = Vector2( 240, 96 )
+texture = ExtResource( 12 )
+amplitude = 30.0
 frequency = 0.3
+enemy_shape = SubResource( 1 )
+damage = 1
+life = 3
+
+[node name="fly_enmey3" parent="level/enemies" instance=ExtResource( 7 )]
+position = Vector2( 752, 0 )
+texture = ExtResource( 12 )
+amplitude = -30.0
+frequency = 0.2
+enemy_shape = SubResource( 1 )
+damage = 1
+life = 3
+debug = true
+
+[node name="fly_enmey2" parent="level/enemies" instance=ExtResource( 7 )]
+position = Vector2( 833, -144 )
+texture = ExtResource( 9 )
+amplitude = 30.0
+frequency = 0.2
+enemy_shape = SubResource( 1 )
+damage = 1
+life = 3
+debug = true
+
+[node name="fly_enmey4" parent="level/enemies" instance=ExtResource( 7 )]
+position = Vector2( 817, -16 )
+texture = ExtResource( 9 )
+amplitude = 25.0
+frequency = 0.35
 enemy_shape = SubResource( 1 )
 damage = 1
 life = 3
@@ -52,18 +108,26 @@ debug = true
 layer = 0
 
 [node name="tilesmap" parent="." instance=ExtResource( 4 )]
+z_index = -1
 
 [node name="platforms" parent="tilesmap" index="0"]
-tile_data = PoolIntArray( 262155, 4, 0, 262156, 4, 0, 262157, 4, 0, 262158, 4, 0, 393216, 4, 0, 393217, 4, 0, 393218, 4, 0, 393219, 4, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 4, 0, 393227, 4, 0, 393228, 4, 0, 393229, 4, 0, 393230, 4, 0, 393231, 4, 0, 393232, 4, 0, 393233, 4, 0, 393234, 4, 0, 393235, 4, 0 )
+show_collision = false
+tile_data = PoolIntArray( -458706, 18, 0, -458702, 7, 0, -458701, 2, 0, -458700, 2, 0, -458699, 8, 0, -458698, 4, 0, -458697, 8, 0, -458696, 2, 0, -458695, 8, 0, -458694, 4, 0, -458693, 9, 0, -393166, 14, 0, -393157, 17, 0, -327636, 18, 0, -196566, 18, 0, -1, 10, 0, -65496, 18, 0, 65535, 10, 0, 131071, 10, 0, 65544, 7, 0, 65545, 15, 0, 65546, 8, 0, 65547, 15, 0, 65548, 8, 0, 65549, 16, 0, 65567, 7, 0, 65568, 8, 0, 65569, 8, 0, 65570, 8, 0, 65571, 15, 0, 65572, 8, 0, 65573, 8, 0, 65574, 9, 0, 65586, 7, 0, 65587, 8, 0, 65588, 15, 0, 65589, 8, 0, 65590, 15, 0, 65591, 9, 0, 196607, 10, 0, 131076, 7, 0, 131077, 15, 0, 131078, 8, 0, 131079, 8, 0, 131080, 12, 0, 131085, 17, 0, 131103, 5, 0, 131110, 10, 0, 131122, 14, 0, 131127, 17, 0, 262143, 10, 0, 196612, 14, 0, 196637, 19, 0, 196639, 5, 0, 196646, 11, 0, 196647, 8, 0, 196648, 8, 0, 196649, 15, 0, 196650, 8, 0, 196651, 15, 0, 196652, 8, 0, 196653, 8, 0, 196654, 8, 0, 196655, 16, 0, 327679, 10, 0, 262173, 20, 0, 262175, 14, 0, 262191, 10, 0, 393215, 10, 0, 327707, 19, 0, 327727, 10, 0, 393216, 8, 0, 393217, 2, 0, 393218, 8, 0, 393219, 15, 0, 393220, 15, 0, 393221, 3, 0, 393222, 8, 0, 393223, 3, 0, 393224, 16, 0, 393243, 20, 0, 458760, 10, 0, 458777, 19, 0, 524296, 10, 0, 524313, 20, 0, 589832, 11, 0, 589833, 15, 0, 589834, 3, 0, 589835, 15, 0, 589836, 8, 0, 589837, 3, 0, 589838, 2, 0, 589839, 15, 0, 589840, 8, 0, 589841, 3, 0, 589842, 8, 0, 589843, 3, 0, 589844, 8, 0, 589845, 15, 0, 589846, 16, 0 )
 
 [node name="props" parent="tilesmap" index="1"]
-tile_data = PoolIntArray( 131090, 1, 0, 196626, 2, 0, 262162, 1, 65536, 327683, 0, 4, 327688, 0, 4, 327698, 1, 131073 )
+tile_data = PoolIntArray( -720842, 1, 0, -655306, 1, 1, -589770, 1, 65536, -524237, 0, 4, -524234, 2, 65536, -524229, 0, 4, -393172, 0, 3, -196596, 1, 0, -131060, 1, 1, -131032, 0, 0, -65524, 1, 65536, 11, 0, 1, 12, 1, 131073, 32, 0, 0, 35, 0, 5, 51, 0, 4, 65541, 0, 5, 131115, 0, 4, 327683, 0, 0, 327697, 1, 0, 393233, 1, 65536, 393241, 0, 5, 458769, 1, 131073, 524300, 0, 1, 524305, 1, 131072, 524307, 0, 4 )
 
 [node name="foliage" parent="tilesmap/props" index="0" instance=ExtResource( 11 )]
-position = Vector2( 295, 24 )
+position = Vector2( 198, -56 )
+
+[node name="foliage2" parent="tilesmap/props" index="1" instance=ExtResource( 11 )]
+position = Vector2( 871, -185 )
+
+[node name="foliage3" parent="tilesmap/props" index="2" instance=ExtResource( 11 )]
+position = Vector2( 279, 70 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 16, 88 )
+position = Vector2( 160, 8 )
 
 [node name="daynamic_clouds" parent="player" instance=ExtResource( 10 )]
 position = Vector2( -112, -16 )

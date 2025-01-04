@@ -43,7 +43,7 @@ cast_to = Vector2( 0, 10 )
 
 [node name="hurt_box" parent="." instance=ExtResource( 4 )]
 _name = "bug"
-_filter = [ "bug" ]
+_filter = [ "bug", "flyenemy" ]
 _hurt = 3
 
 [node name="shape" type="CollisionShape2D" parent="hurt_box"]
@@ -52,6 +52,7 @@ shape = SubResource( 3 )
 
 [node name="hit_box" parent="." instance=ExtResource( 5 )]
 _name = "bug"
+_filter = [ "bug", "flyenemy" ]
 _hit = 1
 
 [node name="shape" type="CollisionShape2D" parent="hit_box"]
