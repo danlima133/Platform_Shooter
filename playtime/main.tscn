@@ -1,6 +1,543 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://playtime/main/script/main.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/altas/player/gun.tres" type="Texture" id=2]
+[ext_resource path="res://playtime/main/script/buttons.gd" type="Script" id=3]
+[ext_resource path="res://game_effects/foliage/objs/foliage.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tilesmap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://components/daynamic_background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/textures/animated/player_anim/player.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://playtime/main/script/background.gd" type="Script" id=8]
+[ext_resource path="res://game_objects/enimies/bug/objs/bug.tscn" type="PackedScene" id=9]
+[ext_resource path="res://game_objects/enimies/fly_enemy/objs/fly_enmey.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/textures/altas/enemys/bumblebee/texture_blumblebee.tres" type="SpriteFrames" id=11]
 
-[node name="main" type="Node2D"]
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -16, 128 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("player:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("player:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "player_move_1"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.7, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -16, 128 ), Vector2( 35, 128 ), Vector2( 35, 128 ), Vector2( -16, 128 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("player:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.7, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 2,
+"values": [ "run", "idle", "run", "idle" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("player:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 1.2, 1.4, 1.5, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true, false, false, true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "player_move_2"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("player:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 0.97, 1.01 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("player:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 2,
+"values": [ "run", "idle", "run" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 0.99, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 16 ), Vector2( 256, 16 ), Vector2( 256, 16 ), Vector2( 320, 16 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot1/gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pivot1/gun:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pivot1/gun:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("pivot2/gun2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("pivot2/gun2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("pivot2/gun2:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "click"
+length = 0.45
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot1/gun:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 0.732043, 0.732043, 1 ),
+"update": 0,
+"values": [ 0.0, 40.0, 40.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pivot1/gun:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 0.353553, 2.07053 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pivot2/gun2:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 0.732043, 0.732043, 1 ),
+"update": 0,
+"values": [ 0.0, -40.0, -40.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("pivot2/gun2:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 0.353553, 2.07053 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 5, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "hover"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot1/gun:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 3.24901 ),
+"update": 0,
+"values": [ Vector2( 10, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pivot1/gun:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pivot1/gun:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1.93187, 0.196146 ),
+"update": 0,
+"values": [ 360.0, 360.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("pivot2/gun2:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 3.24901 ),
+"update": 0,
+"values": [ Vector2( -10, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("pivot2/gun2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("pivot2/gun2:rotation_degrees")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1.93187, 1.93187 ),
+"update": 0,
+"values": [ 0.0, 0.0, 360.0 ]
+}
+
+[node name="main" type="CanvasLayer"]
 script = ExtResource( 1 )
+
+[node name="background" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="tilesmap" parent="background" instance=ExtResource( 5 )]
+
+[node name="platforms" parent="background/tilesmap" index="0"]
+show_collision = false
+tile_data = PoolIntArray( 131088, 13, 0, 131089, 8, 0, 131090, 15, 0, 131091, 8, 0, 131092, 8, 0, 262142, 8, 0, 262143, 8, 0, 196608, 15, 0, 196609, 8, 0, 196610, 15, 0, 196611, 8, 0, 196612, 16, 0, 196624, 5, 0, 262148, 17, 0, 262160, 14, 0, 393223, 7, 0, 393224, 15, 0, 393225, 15, 0, 393226, 8, 0, 393227, 9, 0, 458759, 5, 0, 458763, 10, 0, 458770, 18, 0, 524295, 5, 0, 524299, 10, 0, 524306, 18, 0, 655359, 7, 0, 589824, 15, 0, 589825, 15, 0, 589826, 8, 0, 589827, 9, 0, 589831, 5, 0, 589835, 10, 0, 589839, 18, 0, 655363, 10, 0, 655367, 5, 0, 655371, 10, 0, 720899, 10, 0, 720903, 5, 0, 720907, 10, 0 )
+
+[node name="props" parent="background/tilesmap" index="1"]
+tile_data = PoolIntArray( 65546, 1, 0, 65553, 0, 3, 65555, 0, 5, 131073, 0, 0, 131075, 0, 2, 131082, 1, 65536, 196618, 1, 1, 262154, 1, 65536, 327681, 1, 0, 327688, 0, 3, 327690, 2, 65536, 327691, 0, 4, 327698, 1, 0, 393217, 1, 65536, 393234, 1, 65536, 458753, 1, 65537, 458770, 2, 65536, 524289, 1, 131072, 524291, 0, 5, 524303, 0, 4 )
+
+[node name="foliage" parent="background/tilesmap/props" index="0" instance=ExtResource( 4 )]
+position = Vector2( 166, 8 )
+
+[node name="foliage2" parent="background/tilesmap/props" index="1" instance=ExtResource( 4 )]
+position = Vector2( 22, 71 )
+
+[node name="foliage3" parent="background/tilesmap/props" index="2" instance=ExtResource( 4 )]
+position = Vector2( 295, 71 )
+
+[node name="daynamic_clouds" parent="background" instance=ExtResource( 6 )]
+position = Vector2( 320, 0 )
+
+[node name="player" type="AnimatedSprite" parent="background"]
+position = Vector2( -16, 128 )
+frames = ExtResource( 7 )
+animation = "idle"
+playing = true
+centered = false
+
+[node name="anim" type="AnimationPlayer" parent="background"]
+anims/RESET = SubResource( 4 )
+anims/player_move_1 = SubResource( 5 )
+anims/player_move_2 = SubResource( 6 )
+
+[node name="timer" type="Timer" parent="background/anim"]
+one_shot = true
+
+[node name="bug" parent="background" instance=ExtResource( 9 )]
+position = Vector2( 22, 48 )
+
+[node name="fly_enmey" parent="background" instance=ExtResource( 10 )]
+position = Vector2( 272, 115 )
+texture = ExtResource( 11 )
+amplitude = 30.0
+frequency = 0.3
+
+[node name="hud" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="hud"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 312.0
+margin_bottom = 172.0
+
+[node name="CenterContainer" type="CenterContainer" parent="hud/VBoxContainer"]
+margin_right = 304.0
+margin_bottom = 148.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="hud/VBoxContainer/CenterContainer"]
+margin_left = 59.0
+margin_top = 17.0
+margin_right = 245.0
+margin_bottom = 131.0
+custom_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="hud/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 186.0
+margin_bottom = 42.0
+custom_constants/margin_right = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/MarginContainer"]
+margin_left = 10.0
+margin_right = 176.0
+margin_bottom = 22.0
+theme_type_variation = "LabelTitle"
+text = "Platform Shooter"
+align = 1
+
+[node name="buttons" type="VBoxContainer" parent="hud/VBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 186.0
+margin_bottom = 114.0
+custom_constants/separation = 0
+script = ExtResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons"]
+margin_right = 186.0
+margin_bottom = 24.0
+mouse_filter = 1
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="button_play" type="Label" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons/MarginContainer"]
+margin_left = 70.0
+margin_top = 5.0
+margin_right = 116.0
+margin_bottom = 19.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
+theme_type_variation = "LabelEnfase"
+text = "Play"
+align = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons"]
+margin_top = 24.0
+margin_right = 186.0
+margin_bottom = 48.0
+size_flags_vertical = 4
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="button_settings" type="Label" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons/MarginContainer2"]
+margin_left = 49.0
+margin_top = 5.0
+margin_right = 137.0
+margin_bottom = 19.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
+theme_type_variation = "LabelEnfase"
+text = "Settings"
+align = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons"]
+margin_top = 48.0
+margin_right = 186.0
+margin_bottom = 72.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="button_exit" type="Label" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons/MarginContainer3"]
+margin_left = 73.0
+margin_top = 5.0
+margin_right = 113.0
+margin_bottom = 19.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
+theme_type_variation = "LabelEnfase"
+text = "Exit"
+align = 1
+
+[node name="guns" type="Node2D" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons"]
+
+[node name="pivot1" type="Node2D" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons/guns"]
+position = Vector2( 88, 60 )
+
+[node name="gun" type="Sprite" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons/guns/pivot1"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 2 )
+flip_h = true
+
+[node name="pivot2" type="Node2D" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons/guns"]
+position = Vector2( 32, 60 )
+
+[node name="gun2" type="Sprite" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons/guns/pivot2"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 2 )
+
+[node name="anim" type="AnimationPlayer" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons/guns"]
+anims/RESET = SubResource( 1 )
+anims/click = SubResource( 2 )
+anims/hover = SubResource( 3 )
+
+[node name="deley" type="Timer" parent="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons"]
+wait_time = 0.25
+one_shot = true
+
+[node name="Label" type="Label" parent="hud/VBoxContainer"]
+margin_top = 152.0
+margin_right = 304.0
+margin_bottom = 164.0
+theme_type_variation = "LabelBlue"
+text = "v0.0.0"
+align = 2
+
+[connection signal="timeout" from="background/anim/timer" to="background" method="_on_timer_timeout"]
+[connection signal="click_button" from="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons" to="." method="_on_buttons_click_button"]
+[connection signal="animation_finished" from="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons/guns/anim" to="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons" method="_on_anim_animation_finished"]
+[connection signal="animation_started" from="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons/guns/anim" to="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons" method="_on_anim_animation_started"]
+[connection signal="timeout" from="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons/deley" to="hud/VBoxContainer/CenterContainer/VBoxContainer/buttons" method="_on_deley_timeout"]
+
+[editable path="background/tilesmap"]

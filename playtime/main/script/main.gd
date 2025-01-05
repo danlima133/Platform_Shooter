@@ -1,6 +1,10 @@
-extends Node
+extends CanvasLayer
 
-func _input(event):
-	if event is InputEventKey:
-		if event.pressed and event.scancode == KEY_0:
-			ManagerScenes.go_to_level("level_easy", ManagerScenes._current_level)
+func _on_buttons_click_button(id):
+	match id:
+		"button_play":
+			ManagerScenes.go_to_level("level_easy")
+		"button_settings":
+			pass
+		"button_exit":
+			get_tree().quit()

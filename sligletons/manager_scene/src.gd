@@ -98,8 +98,10 @@ func go_to_level(level_name, current_scene = _current_level):
 
 func go_to_main(current_scene = _current_level):
 	var _err = _remove_current_scene(current_scene)
-	if _err != OK: return ERR_INVALID_DATA 
-	var _scene = yield(_load_scene(MAIN), "completed").instance()
+	if _err != OK: return ERR_INVALID_DATA
+	var _state = self._load_scene(MAIN)
+	print(_state)
+	var _scene = yield(_state, "completed").instance()
 	_set_scene_name(_scene, MAIN_NAME)
 	ROOT.add_child(_scene)
 	_set_env(Envs.MAIN)
@@ -110,7 +112,7 @@ func go_to_scene(scene_path, scene_name, current_scene):
 	if ResourceLoader.exists(scene_path):
 		var _err = _remove_current_scene(current_scene)
 		if _err == OK:
-			var _scene = yield(_load_scene(scene_path), "completed").instance()
+			var _scene = yield(self._load_scene(scene_path), "completed").instance()
 			_set_scene_name(_scene, scene_name, true)
 			ROOT.add_child(_scene)
 			_set_env(Envs.GENERIC)
@@ -123,7 +125,7 @@ func reload_current_scene(scene = _current_level):
 	if ROOT.has_node(scene):
 		var _current_scene = ROOT.get_node(scene)
 		var _instance_path = _current_scene.filename
-		var _scene = yield(_load_scene(_instance_path), "completed").instance()
+		var _scene = yield(self._load_scene(_instance_path), "completed").instance()
 		_scene.name = _current_scene.name
 		_current_scene.queue_free()
 		yield(get_tree(), "idle_frame")
