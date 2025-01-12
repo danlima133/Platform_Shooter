@@ -263,6 +263,7 @@ text = "#:#"
 align = 1
 
 [node name="next_level_btn" type="Button" parent="player_win/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 margin_top = 64.0
 margin_right = 120.0
 margin_bottom = 86.0

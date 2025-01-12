@@ -26,7 +26,7 @@ func _get_buttons():
 func _input(event):
 	if Input.is_action_just_pressed("click_button"):
 		if _current_button and _can_click:
-			_on_click(_current_button)
+			yield(_on_click(_current_button), "completed")
 			emit_signal("click_button", _current_button.name)
 
 func _ready():
@@ -75,6 +75,7 @@ func _on_hover(label):
 
 func _on_click(label):
 	anim.play("click")
+	yield(anim, "animation_finished")
 
 
 

@@ -896,8 +896,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Modules="*res://sligletons/Modules.gd"
-ManagerScenes="*res://sligletons/manager_scene/src.gd"
+Modules="*res://sigletons/Modules.gd"
+ManagerScenes="*res://sigletons/manager_scene/src.gd"
 
 [display]
 

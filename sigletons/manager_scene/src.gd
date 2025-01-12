@@ -1,8 +1,10 @@
 extends Node
 
-const LOADING_SCREEN = preload("res://sligletons/manager_scene/load_screen/load_screen.tscn")
+signal load_scene_finished()
 
-const MAIN = "res://playtime/main/main.tscn"
+const LOADING_SCREEN = preload("res://sigletons/manager_scene/load_screen/load_screen.tscn")
+
+const MAIN = "res://playtime/main.tscn"
 var LEVELS_PATH = "res://playtime/levels/"
 
 const MAIN_NAME = "main"
@@ -81,14 +83,15 @@ func _load_scene(path):
 			_load_screen.set_loading_percent(float(_loader.get_stage()) / _loader.get_stage_count() * 100)
 			yield(get_tree().create_timer(0.1), "timeout")
 		yield(_load_screen.__magic_on_load_complete(), "completed")
-		return _loader.get_resource()
+		emit_signal("load_scene_finished", _loader.get_resource())
 
 func go_to_level(level_name, current_scene = _current_level):
 	if _levels.has(level_name):
 		var _err = _remove_current_scene(current_scene)
 		if _err != OK: return ERR_CANT_RESOLVE
 		var _level_path = _levels[level_name]
-		var _level = yield(self._load_scene(_level_path), "completed").instance()
+		_load_scene(_level_path)
+		var _level = yield(self, "load_scene_finished").instance()
 		_set_scene_name(_level, level_name)
 		ROOT.add_child(_level)
 		_set_env(Envs.LEVEL)
@@ -99,9 +102,8 @@ func go_to_level(level_name, current_scene = _current_level):
 func go_to_main(current_scene = _current_level):
 	var _err = _remove_current_scene(current_scene)
 	if _err != OK: return ERR_INVALID_DATA
-	var _state = self._load_scene(MAIN)
-	print(_state)
-	var _scene = yield(_state, "completed").instance()
+	_load_scene(MAIN)
+	var _scene = yield(self, "load_scene_finished").instance()
 	_set_scene_name(_scene, MAIN_NAME)
 	ROOT.add_child(_scene)
 	_set_env(Envs.MAIN)
@@ -125,7 +127,8 @@ func reload_current_scene(scene = _current_level):
 	if ROOT.has_node(scene):
 		var _current_scene = ROOT.get_node(scene)
 		var _instance_path = _current_scene.filename
-		var _scene = yield(self._load_scene(_instance_path), "completed").instance()
+		_load_scene(_instance_path)
+		var _scene = yield(self, "load_scene_finished").instance()
 		_scene.name = _current_scene.name
 		_current_scene.queue_free()
 		yield(get_tree(), "idle_frame")

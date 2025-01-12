@@ -167,11 +167,13 @@ func _on_player_dethe(args):
 
 func _on_player_win(args):
 	_next_level = args[0]
+	if _next_level.empty():
+		$"%next_level_btn".disabled = true
 	hide_hud()
 	player_win.show()
 	_level_timer.stop()
 	conslusion_time.text = \
-	"Timer %s:%s" % [_level_timer.get_minutes(0), _level_timer.get_seconds(0)]
+	"Time %s:%s" % [_level_timer.get_minutes(0), _level_timer.get_seconds(0)]
 
 func _on_restart_level_btn_pressed():
 	ManagerScenes.reload_current_scene()
@@ -184,6 +186,7 @@ func _on_resume_btn_pressed():
 	get_tree().paused = false
 
 func _on_main_btn_pressed():
+	get_tree().paused = false
 	ManagerScenes.go_to_main()
 
 

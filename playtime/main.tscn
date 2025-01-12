@@ -337,6 +337,13 @@ tracks/5/keys = {
 
 [node name="main" type="CanvasLayer"]
 script = ExtResource( 1 )
+version = {
+"major": 1,
+"minor": 0,
+"patch": 0,
+"pre_release": "beta",
+"pre_release_version": 1
+}
 
 [node name="background" type="Node2D" parent="."]
 script = ExtResource( 8 )
@@ -526,12 +533,11 @@ anims/hover = SubResource( 3 )
 wait_time = 0.25
 one_shot = true
 
-[node name="Label" type="Label" parent="hud/VBoxContainer"]
+[node name="version" type="Label" parent="hud/VBoxContainer"]
 margin_top = 152.0
 margin_right = 304.0
 margin_bottom = 164.0
 theme_type_variation = "LabelBlue"
-text = "v0.0.0"
 align = 2
 
 [connection signal="timeout" from="background/anim/timer" to="background" method="_on_timer_timeout"]
