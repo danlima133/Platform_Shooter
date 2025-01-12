@@ -145,7 +145,7 @@ func _on_hurt_box_at_hurt_factor():
 func _on_hurt_box_hurt(hurt_box, hit_box):
 	var _levelset = Groups.get_node_in_group("levelset")
 	if _levelset:
-		_levelset.get_camera().shake(0.25, 120)
+		_levelset.get_camera().shake(0.25, 100)
 	shield.start_shield(6)
 	var _hud = Groups.get_node_in_group("HUDlevel")
 	if _hud:

@@ -89,9 +89,9 @@ custom_constants/separation = 2
 [node name="enimies_in_level" type="HBoxContainer" parent="control/Control"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -32.0
+margin_left = -50.0
 margin_bottom = 12.0
-custom_constants/separation = 2
+custom_constants/separation = 0
 alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="control/Control/enimies_in_level"]
@@ -104,30 +104,34 @@ expand = true
 stretch_mode = 6
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="control/Control/enimies_in_level"]
-margin_left = 14.0
-margin_right = 32.0
+margin_left = 12.0
+margin_right = 50.0
 margin_bottom = 12.0
 custom_constants/separation = -1
 
 [node name="max_enimies" type="Label" parent="control/Control/enimies_in_level/HBoxContainer2"]
-margin_right = 8.0
+margin_right = 18.0
 margin_bottom = 12.0
+rect_min_size = Vector2( 18, 0 )
 custom_colors/font_color = Color( 0.0387859, 0.34705, 0.478516, 1 )
 text = "#"
+align = 1
 
 [node name="bar" type="Label" parent="control/Control/enimies_in_level/HBoxContainer2"]
-margin_left = 7.0
-margin_right = 11.0
+margin_left = 17.0
+margin_right = 21.0
 margin_bottom = 12.0
 custom_colors/font_color = Color( 0.0387859, 0.34705, 0.478516, 1 )
 text = "/"
 
 [node name="enimies" type="Label" parent="control/Control/enimies_in_level/HBoxContainer2"]
-margin_left = 10.0
-margin_right = 18.0
+margin_left = 20.0
+margin_right = 38.0
 margin_bottom = 12.0
+rect_min_size = Vector2( 18, 0 )
 custom_colors/font_color = Color( 0.0387859, 0.34705, 0.478516, 1 )
 text = "#"
+align = 1
 
 [node name="level_timer" type="MarginContainer" parent="control/Control"]
 anchor_top = 1.0
@@ -259,6 +263,7 @@ text = "#:#"
 align = 1
 
 [node name="next_level_btn" type="Button" parent="player_win/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 margin_top = 64.0
 margin_right = 120.0
 margin_bottom = 86.0
